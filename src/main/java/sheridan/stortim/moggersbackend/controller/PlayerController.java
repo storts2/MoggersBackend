@@ -20,4 +20,14 @@ public class PlayerController {
     public List<Player> getAll() {
         return _repository.findAll();
     }
+
+    @GetMapping("/api/topScorers")
+    public List<Player> getTopFiveScorers() {
+        return _repository.findTopFiveScorer();
+    }
+
+    @GetMapping("/api/topAssisters")
+    public List<Player> getTopFiveAssisters() {
+        return _repository.findTopFiveAssister();
+    }
 }
