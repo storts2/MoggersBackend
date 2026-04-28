@@ -30,4 +30,9 @@ public class PlayerController {
     public List<Player> getTopFiveAssisters() {
         return _repository.findTopFiveAssister();
     }
+
+    @GetMapping("/api/topCleanSheets")
+    public List<Player> getTopFiveCleanSheets() {
+        return _repository.findTopFiveCleanSheets();
+    }
 }
