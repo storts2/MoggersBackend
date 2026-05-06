@@ -1,11 +1,12 @@
 package sheridan.stortim.moggersbackend.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sheridan.stortim.moggersbackend.entity.Player;
 import sheridan.stortim.moggersbackend.repository.PlayerRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 public class PlayerController {
@@ -34,5 +35,27 @@ public class PlayerController {
     @GetMapping("/api/topCleanSheets")
     public List<Player> getTopFiveCleanSheets() {
         return _repository.findTopFiveCleanSheets();
+    }
+
+    @GetMapping("/api/player/{id}")
+    public Optional<Player> getPlayerById(
+            @PathVariable Long id
+    )
+    {
+        return _repository.findById(id);
+    }
+
+    @PutMapping("/api/updatePlayer")
+    public void updatePlayer(
+            @RequestBody Player player
+    ) {
+        _repository.save(player);
+    }
+
+    @DeleteMapping("/api/deletePlayer/{id}")
+    public void deletePlayer(
+            @PathVariable Long id
+    ) {
+        _repository.deleteById(id);
     }
 }
