@@ -44,18 +44,4 @@ public class PlayerController {
     {
         return _repository.findById(id);
     }
-
-    @PutMapping("/api/admin/updatePlayer")
-    public void updatePlayer(
-            @RequestBody Player player
-    ) {
-        _repository.save(player);
-    }
-
-    @DeleteMapping("/api/admin/deletePlayer/{id}")
-    public void deletePlayer(
-            @PathVariable Long id
-    ) {
-        _repository.deleteById(id);
-    }
 }
