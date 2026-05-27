@@ -18,7 +18,7 @@ public class Match {
     private String away_name;
     private Long home_score;
     private Long away_score;
-    private String status;
+    private Character status;
     private String match_date;
     private String address;
 
