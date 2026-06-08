@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 import sheridan.stortim.moggersbackend.DTO.TeamStats;
 import sheridan.stortim.moggersbackend.service.StatsService;
 
+import java.util.List;
+
 @RestController
 public class StatsController {
 
@@ -12,16 +14,6 @@ public class StatsController {
 
     public StatsController(StatsService service) {
         _service = service;
-    }
-
-    @GetMapping("/api/public/getWins")
-    public int getWins() {
-        return _service.getWins();
-    }
-
-    @GetMapping("/api/public/getLosses")
-    public int getLosses() {
-        return _service.getLosses();
     }
 
     @GetMapping("/api/public/getTeamStats")
@@ -40,5 +32,10 @@ public class StatsController {
                 goalDifferential, winPercentage, matchesPlayed);
 
         return teamStats;
+    }
+
+    @GetMapping("/api/public/getForm")
+    public List<Character> teamForm() {
+        return _service.getForm();
     }
 }

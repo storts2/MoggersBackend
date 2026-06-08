@@ -22,5 +22,7 @@ public class Player {
     private Long matchesPlayed;
     private String playerPosition;
     private Long cleanSheets;
-
+    private Long yellowCards;
+    private Long redCards;
+    private boolean playerOfWeek;
 }

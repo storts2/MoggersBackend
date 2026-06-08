@@ -14,4 +14,6 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
     @Query("SELECT m FROM Match m WHERE m.status = 'U'")
     List<Match> findUpcomingMatches();
 
+    @Query("SELECT m FROM Match m WHERE m.status = 'L' OR m.status = 'W' LIMIT 5")
+    List<Match> findLastFiveMatches();
 }

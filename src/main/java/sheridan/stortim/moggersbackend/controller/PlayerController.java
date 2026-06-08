@@ -44,4 +44,9 @@ public class PlayerController {
     {
         return _repository.findById(id);
     }
+
+    @GetMapping("/api/public/playerOfWeek")
+    public Player getPlayerOfWeek() {
+        return _repository.findPlayerOfWeek();
+    }
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import sheridan.stortim.moggersbackend.entity.Match;
 import sheridan.stortim.moggersbackend.repository.MatchRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -106,4 +107,20 @@ public class StatsService {
         return (double) getWins() / getMatchesPlayed();
     }
 
+    public List<Character> getForm() {
+        List<Match> playedMatches = _repository.findPlayedMatches();
+        List<Character> form = new ArrayList<>();
+
+        int matchesToShow = Math.min(5, playedMatches.size());
+
+        for (int i = 0; i < matchesToShow; i++) {
+            form.add(playedMatches.get(i).getStatus());
+        }
+
+        while (form.size() < 5) {
+            form.add('-');
+        }
+
+        return form;
+    }
 }

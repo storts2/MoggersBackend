@@ -16,4 +16,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Query("SELECT p FROM Player p ORDER BY p.cleanSheets DESC LIMIT 5")
     List<Player> findTopFiveCleanSheets();
+
+    @Query("SELECT p FROM Player p WHERE p.playerOfWeek = true")
+    Player findPlayerOfWeek();
 }
