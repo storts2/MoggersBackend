@@ -42,5 +42,3 @@ API documentation is available through Swagger UI: http://localhost:8080/swagger
 
 ## Author
 Matthew Storti
-## Author
-Matthew Storti
